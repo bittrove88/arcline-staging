@@ -17,4 +17,10 @@ ARCLINEの検証専用サイト。ソースの正本は [bittrove88/bittrove88.g
 4. アシスタントに更新を依頼する場合は、`staging-source.json` の sourceCommit を変更するコミットで同じ検証・配信処理を開始できます。ソースPRの更新では配信しません。
 5. 検証・配信成功後、[STGを開く](https://bittrove88.github.io/arcline-staging/)。画面に表示された版とコミットを確認してください。
 
-公開URLの確認・実機操作はActions成功と区別して記録します。初期の配信結果は準備中です。
+公開URLの確認・実機操作はActions成功と区別して記録します。初回配信と公開URLのブラウザ検証は成功しました。
+
+- ソース：`fb8dbc1000321a885ece8ffc29b2c5cd47c8f366`（0.24.1のゲーム本体を利用）
+- [検証・配信Actions](https://github.com/bittrove88/arcline-staging/actions/runs/42344852129)
+- [公開URLのブラウザ検証](https://github.com/bittrove88/arcline-staging/actions/runs/42345229073)
+- 公開URLで1/50/100面起動、50/100面の実戦開始、再読込初期化、音源実再生、保存非干渉を確認。実機iPhone／Androidは未確認です。
+- 以後の配信後も「Verify public ARCLINE STG」が公開URLを確認します。試験には新しいブラウザプロファイルを使い、利用者の実データは取得しません。

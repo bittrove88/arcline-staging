@@ -14,6 +14,7 @@ ARCLINEの検証専用サイト。ソースの正本は [bittrove88/bittrove88.g
 1. Settings → Pages → Build and deployment → Source を **GitHub Actions** に設定します。
 2. Actions → **ARCLINE STG manual publish** → Run workflow を開きます。
 3. [PR #65](https://github.com/bittrove88/bittrove88.github.io/pull/65)の検証済みheadなど、STG実装を含む完全な40桁SHAを source_commit に入力します。
-4. 検証・配信成功後、[STGを開く](https://bittrove88.github.io/arcline-staging/)。画面に表示された版とコミットを確認してください。
+4. アシスタントに更新を依頼する場合は、`staging-source.json` の sourceCommit を変更するコミットで同じ検証・配信処理を開始できます。ソースPRの更新では配信しません。
+5. 検証・配信成功後、[STGを開く](https://bittrove88.github.io/arcline-staging/)。画面に表示された版とコミットを確認してください。
 
 公開URLの確認・実機操作はActions成功と区別して記録します。初期の配信結果は準備中です。

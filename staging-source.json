@@ -1,0 +1,7 @@
+{
+  "sourceRepository": "bittrove88/bittrove88.github.io",
+  "sourceCommit": "fb8dbc1000321a885ece8ffc29b2c5cd47c8f366",
+  "environment": "staging",
+  "persistentSave": false,
+  "note": "Initial GitHub-only STG. Verified locally: 33 game suites, 145 generated files, 69 session checks, 13 Python tests, 44 browser checks."
+}

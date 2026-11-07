@@ -1,6 +1,9 @@
 # Install this file in the STG-only repository, not the production repository.
 name: ARCLINE STG manual publish
 on:
+  push:
+    branches: [main]
+    paths: ['staging-source.json']
   workflow_dispatch:
     inputs:
       source_commit:
@@ -18,15 +21,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - uses: actions/checkout@v4
+        with:
+          path: deployment
+          persist-credentials: false
       - name: Validate fixed source commit
+        id: source
         env:
           SOURCE_COMMIT: ${{ inputs.source_commit }}
         run: |
-          [[ "$SOURCE_COMMIT" =~ ^[0-9a-f]{40}$ ]] || exit 1
+          python3 - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          sha = os.environ['SOURCE_COMMIT'] or json.loads(Path('deployment/staging-source.json').read_text())['sourceCommit']
+          if not re.fullmatch(r'[0-9a-f]{40}', sha):
+              raise SystemExit('A full source commit SHA is required')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('commit=' + sha + '\n')
+          PY
       - uses: actions/checkout@v4
         with:
           repository: bittrove88/bittrove88.github.io
-          ref: ${{ inputs.source_commit }}
+          ref: ${{ steps.source.outputs.commit }}
           fetch-depth: 0
           path: source
           persist-credentials: false
@@ -57,7 +73,7 @@ jobs:
           node environments/tests/staging-session.test.cjs
       - name: Build STG artifact
         env:
-          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          SOURCE_COMMIT: ${{ steps.source.outputs.commit }}
           SITE_OUTPUT: ${{ runner.temp }}/arcline-staging-site
         run: >-
           python3 source/ARCLINE/environments/tools/build_staging.py
@@ -68,7 +84,9 @@ jobs:
         env:
           ARCLINE_STAGING_SITE: ${{ runner.temp }}/arcline-staging-site
           ARCLINE_EVIDENCE_DIR: ${{ runner.temp }}/arcline-staging-evidence
-        run: node environments/tests/staging-browser.test.cjs
+        run: |
+          python3 -m unittest discover -s environments/tests -v
+          node environments/tests/staging-browser.test.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

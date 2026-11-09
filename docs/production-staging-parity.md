@@ -85,7 +85,7 @@ CSS：`battle-ui.css`。
 
 ## 0.29.5への反映記録
 
-ユーザーの「反映して」の指示によりSTG更新を実施する。本番リポジトリ・本番Pages設定への書き込みは行わない。
+ユーザーの「反映して」の指示によりSTG更新を実施済み。本番リポジトリ・本番Pages設定への書き込みは行わない。
 
 - 対象SHA：`415e7bc9cb28ee591abd80063ce4eab18da07607`（0.29.5）。[本番Pages配信成功記録](https://github.com/bittrove88/bittrove88.github.io/actions/runs/42537765422)の対象コミットと照合。
 - 変更：STGリポジトリの `staging-source.json` の固定SHAと運用文書。正本のゲーム・STG生成処理・保存隔離コードの変更は不要。
@@ -98,4 +98,13 @@ CSS：`battle-ui.css`。
 - HTMLは保存隔離ローダー・素材の相対パス等の意図した加工があるため、全文一致とはしない。STG固有ファイル・メタデータも本番との一致対象外。
 - 本番公開ファイルとの一致は、Pages管理画面上の全設定や本番用Codex環境設定の一致を意味しない。実機iPhone/Androidは未確認。
 
-配信・公開URL検証：これから実施。配信成功と公開URLでの非干渉検証は、確認できた時点で追記する。
+配信・公開URL検証：完了。
+
+- [STG配信Actions](https://github.com/bittrove88/arcline-staging/actions/runs/42541984741)：成功。既存ワークフローのゲーム単体検査・生成物チェック・セッション試験・Python試験・ブラウザ試験・STG配信を完了。
+- [公開URLブラウザ検証Actions](https://github.com/bittrove88/arcline-staging/actions/runs/42542507583)：成功。新規ブラウザプロファイルで公開URLの1/50/100面、50/100面実戦開始、再読込初期化、保存非干渉、AAC再生、例外・欠落アセットなしを確認。
+- 公開 `STAGING_BUILD.json`：版0.29.5、対象SHA一致、`persistentSave: false`、`sourceDirty: false`。公開された218ファイルすべてをHTTPSで取得し、配信前に試験したパッケージのSHA-256と一致。
+- 補助ファイル `attack-review-model.js` と `icon.svg` も本番公開物と一致。本番HTMLは固定ソースと一致し、STG側HTMLの差は生成処理による相対パス・隔離ローダー等として扱う。
+- この管理環境での公開URL向けChromium試験は `ERR_CERT_AUTHORITY_INVALID` により停止。証明書検証は無効化していない。上記GitHub Actionsで同等の公開URLブラウザ検証が成功したことを根拠とする。
+- 反映後も本番mainのSHAは `415e7bc9cb28ee591abd80063ce4eab18da07607`、公開ゲーム版は0.29.5で変化なし。本番リポジトリへのpushや本番配信操作は行っていない。
+- [機械可読の検証記録](verification-0.29.5.json)。実機iPhone/Androidは未確認。
+

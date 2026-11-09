@@ -1,0 +1,85 @@
+{
+  "sourceCommit": "415e7bc9cb28ee591abd80063ce4eab18da07607",
+  "version": "0.29.5",
+  "productionPagesRun": "https://github.com/bittrove88/bittrove88.github.io/actions/runs/42537765422",
+  "stagingDeploymentRun": "https://github.com/bittrove88/arcline-staging/actions/runs/42541984741",
+  "preDeployment": {
+    "runtimeStylesWorker": {
+      "checked": 83,
+      "allMatchProduction": true
+    },
+    "assets": {
+      "checked": 127,
+      "allMatchProduction": true
+    },
+    "additionalFiles": {
+      "files": [
+        "attack-review-model.js",
+        "icon.svg"
+      ],
+      "allMatchProduction": true
+    },
+    "productionHtmlMatchesFixedSource": true,
+    "generatedFiles": {
+      "checked": 153,
+      "status": "PASS"
+    },
+    "session": {
+      "checks": 69,
+      "status": "PASS"
+    },
+    "python": {
+      "tests": 13,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    "browser": {
+      "status": "PASS",
+      "checks": 44,
+      "started": [
+        50,
+        100
+      ],
+      "errors": [],
+      "failed": [],
+      "scope": "Memory-only STG and same-origin production storage witness; modes, settings, reload, new tab, startup failure, real Worker, packaged AAC. Physical iPhone/Android not tested."
+    }
+  },
+  "publicDeployment": {
+    "status": "PASS",
+    "deploymentRun": "https://github.com/bittrove88/arcline-staging/actions/runs/42541984741",
+    "publicFiles": {
+      "status": "PASS",
+      "version": "0.29.5",
+      "sourceCommit": "415e7bc9cb28ee591abd80063ce4eab18da07607",
+      "checkedFiles": 218,
+      "mismatches": []
+    },
+    "browserVerification": {
+      "status": "PASS",
+      "runner": "GitHub Actions",
+      "run": "https://github.com/bittrove88/arcline-staging/actions/runs/42542507583",
+      "scope": [
+        "public version and source SHA",
+        "stages 1/50/100",
+        "real engine start at 50/100",
+        "reload resets inventory and settings",
+        "zero native storage or SDK accesses",
+        "same-origin storage witness unchanged",
+        "AAC playback",
+        "zero browser exceptions and missing assets"
+      ]
+    },
+    "localPublicBrowserAttempt": {
+      "status": "BLOCKED",
+      "reason": "net::ERR_CERT_AUTHORITY_INVALID in managed Chromium; TLS verification was not bypassed. Equivalent public browser verification passed on GitHub Actions."
+    }
+  },
+  "physicalDevices": "NOT_TESTED",
+  "productionWritesPerformed": false,
+  "productionAfterDeployment": {
+    "mainCommit": "415e7bc9cb28ee591abd80063ce4eab18da07607",
+    "version": "0.29.5",
+    "unchanged": true
+  }
+}

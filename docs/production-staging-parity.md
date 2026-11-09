@@ -107,4 +107,3 @@ CSS：`battle-ui.css`。
 - この管理環境での公開URL向けChromium試験は `ERR_CERT_AUTHORITY_INVALID` により停止。証明書検証は無効化していない。上記GitHub Actionsで同等の公開URLブラウザ検証が成功したことを根拠とする。
 - 反映後も本番mainのSHAは `415e7bc9cb28ee591abd80063ce4eab18da07607`、公開ゲーム版は0.29.5で変化なし。本番リポジトリへのpushや本番配信操作は行っていない。
 - [機械可読の検証記録](verification-0.29.5.json)。実機iPhone/Androidは未確認。
-

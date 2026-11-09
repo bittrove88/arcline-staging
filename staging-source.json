@@ -1,7 +1,7 @@
 {
   "sourceRepository": "bittrove88/bittrove88.github.io",
-  "sourceCommit": "fb8dbc1000321a885ece8ffc29b2c5cd47c8f366",
+  "sourceCommit": "415e7bc9cb28ee591abd80063ce4eab18da07607",
   "environment": "staging",
   "persistentSave": false,
-  "note": "Initial GitHub-only STG. Verified locally: 33 game suites, 145 generated files, 69 session checks, 13 Python tests, 44 browser checks."
+  "note": "Sync with published production 0.29.5. Pre-deploy: 83 runtime/style/Worker files and 127 assets match public production; 153 generated files, 69 session checks, 13 Python tests and 44 browser checks passed. STG isolation retained."
 }
